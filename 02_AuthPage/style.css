@@ -1,204 +1,130 @@
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-        body {
-            overflow-x: auto;
-            overflow-y: auto;
-        }
+body {
+  min-height: 100vh;
+}
 
-        #container {
-            display: flex;
-            min-height: 100vh;
-            width: 100%;
-        }
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
 
-        #left {
-            width: 70%;
-            min-height: 100vh;
-            background: linear-gradient(120deg, #3498db, #2980b9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2vh 3%;
-            overflow-y: auto;
-        }
+.info-panel {
+  flex: 7 1 30rem;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 4rem);
+}
 
-        #logo {
-            width: 12vw;
-            height: 12vw;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 0.3vw solid white;
-            background: white;
-            flex-shrink: 0;
-        }
+.info-content {
+  max-width: 90%;
+}
 
-        #logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.brand-logo {
+  width: clamp(5rem, 15vw, 10rem);
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+}
 
-        #description {
-            margin-top: 2vh;
-            padding: 1.5vh 3%;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5%;
-            color: white;
-            text-align: center;
-            width: 80%;
-            flex-shrink: 0;
-        }
+.info-content h2 {
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  margin-bottom: 1rem;
+}
 
-        #description h2 {
-            font-size: 1.8vw;
-            margin-bottom: 0.5vh;
-        }
+.info-content p {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  line-height: 1.6;
+  opacity: 0.9;
+}
 
-        #description p {
-            font-size: 1.1vw;
-            line-height: 1.5;
-        }
+.auth-panel {
+  flex: 3 1 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
 
-        #right {
-            width: 30%;
-            min-height: 100vh;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2vh 3%;
-            overflow-y: auto;
-        }
+.auth-box {
+  width: 100%;
+  max-width: 28rem;
+}
 
-        .auth-box {
-            width: 100%;
-            background: white;
-            border-radius: 5%;
-            box-shadow: 0 0.5vh 2vh rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            margin: 1vh 0;
-        }
+input[type="radio"] {
+  display: none;
+}
 
-        input[type="radio"] {
-            display: none;
-        }
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
 
-        .tabs {
-            display: flex;
-            background: #e0e0e0;
-        }
+.tab-header label {
+  cursor: pointer;
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+}
 
-        .tab {
-            flex: 1;
-            text-align: center;
-            padding: 2vh;
-            cursor: pointer;
-            font-weight: 600;
-            color: #666;
-            transition: all 0.3s;
-            font-size: 1.2vw;
-        }
+#tab-login:checked ~ .tab-header label[for="tab-login"],
+#tab-register:checked ~ .tab-header label[for="tab-register"] {
+  color: #2563eb;
+  border-bottom: 0.15rem solid #2563eb;
+}
 
-        .tab:hover {
-            background: #d0d0d0;
-        }
+.auth-form {
+  display: none;
+}
 
-        #login-tab:checked ~ .tabs label[for="login-tab"],
-        #register-tab:checked ~ .tabs label[for="register-tab"] {
-            background: #3498db;
-            color: white;
-        }
+#tab-login:checked ~ .login-form {
+  display: block;
+}
 
-        .content {
-            display: none;
-            padding: 3vh 6%;
-        }
+#tab-register:checked ~ .register-form {
+  display: block;
+}
 
-        #login-tab:checked ~ .login {
-            display: block;
-        }
+.auth-form h3 {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
 
-        #register-tab:checked ~ .register {
-            display: block;
-        }
+.auth-form input {
+  width: 100%;
+  padding: clamp(0.7rem, 2vw, 0.9rem);
+  margin-bottom: 1rem;
+  border: 0.08rem solid #ccc;
+  border-radius: 0.3rem;
+}
 
-        .content h2 {
-            text-align: center;
-            margin-bottom: 2vh;
-            font-size: 1.8vw;
-            color: #333;
-        }
+.auth-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
 
-        .form-group {
-            margin-bottom: 2vh;
-        }
+.auth-form button {
+  width: 100%;
+  padding: clamp(0.8rem, 2vw, 1rem);
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5vh;
-            color: #555;
-            font-weight: 500;
-            font-size: 1.1vw;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 1.2vh;
-            border: 0.2vh solid #ddd;
-            border-radius: 2%;
-            font-size: 1.1vw;
-            transition: border 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        button {
-            width: 100%;
-            padding: 1.5vh;
-            border: none;
-            background: #3498db;
-            color: white;
-            cursor: pointer;
-            border-radius: 2%;
-            font-weight: 600;
-            font-size: 1.2vw;
-            transition: background 0.3s;
-            margin-top: 1vh;
-        }
-
-        button:hover {
-            background: #2980b9;
-        }
-
-        .link {
-            display: inline-block;
-            margin-top: 1vh;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1vw;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
-        .switch-text {
-            text-align: center;
-            margin-top: 1.5vh;
-            color: #777;
-            font-size: 1.1vw;
-        }
+.link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
