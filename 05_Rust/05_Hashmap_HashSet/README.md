@@ -1,7 +1,6 @@
 # HashMap 
 
-This project demonstrates the usage of Rust’s **HashMap** collection from the standard library.  
-It focuses on storing, retrieving, removing, filtering, and extending data using a custom `Student` struct.
+This task demonstrates the usage of Rust’s **HashMap** collection from the standard library.It focuses on storing, retrieving, removing, filtering, and extending data using a custom `Student` struct.
 
 ---
 
@@ -11,8 +10,6 @@ The application uses a **HashMap** to manage student records where:
 
 - **Key** → `u32` (Student ID)
 - **Value** → `Student` struct (id, name, marks)
-
-This example showcases common real-world operations performed on a `HashMap`.
 
 ---
 
@@ -52,22 +49,9 @@ The `Student` struct represents individual student data stored as values inside 
 
 ### Filtering
 - `retain()` keeps only entries that satisfy a condition  
-  (e.g., students with marks ≥ 50).
 
 ### Extension
 - `extend()` merges another `HashMap` into the existing one.
-
----
-
-## What This Project Demonstrates
-
-- Key-value storage using `HashMap`
-- Working with structured data as values
-- Safe access using `Option`
-- Ownership transfer using `take()`
-- Filtering data efficiently
-- Optimizing memory usage
-- Merging collections
 
 ---
 
